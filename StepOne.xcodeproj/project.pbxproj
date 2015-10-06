@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C1BB94B1BC3D70200020E28 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C1BB94A1BC3D70200020E28 /* Default-568h@2x.png */; settings = {ASSET_TAGS = (); }; };
 		2CC907151AEAD08600D17090 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC907141AEAD08600D17090 /* AppDelegate.swift */; };
 		2CC907171AEAD08600D17090 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC907161AEAD08600D17090 /* ViewController.swift */; };
 		2CC9071A1AEAD08600D17090 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CC907181AEAD08600D17090 /* Main.storyboard */; };
@@ -26,6 +27,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2C1BB94A1BC3D70200020E28 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		2CC9070F1AEAD08600D17090 /* StepOne.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StepOne.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CC907131AEAD08600D17090 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2CC907141AEAD08600D17090 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 		2CC907061AEAD08600D17090 = {
 			isa = PBXGroup;
 			children = (
+				2C1BB94A1BC3D70200020E28 /* Default-568h@2x.png */,
 				2CC907111AEAD08600D17090 /* StepOne */,
 				2CC907271AEAD08600D17090 /* StepOneTests */,
 				2CC907101AEAD08600D17090 /* Products */,
@@ -195,6 +198,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2CC9071A1AEAD08600D17090 /* Main.storyboard in Resources */,
+				2C1BB94B1BC3D70200020E28 /* Default-568h@2x.png in Resources */,
 				2CC9071F1AEAD08600D17090 /* LaunchScreen.xib in Resources */,
 				2CC9071C1AEAD08600D17090 /* Images.xcassets in Resources */,
 			);
