@@ -48,7 +48,6 @@ class APIController {
                 } catch let error as NSError {
                     print(error.description)
                 }
-
             })
             
             // The task is just an object with all these properties set
