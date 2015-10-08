@@ -9,6 +9,13 @@
 import Foundation
 
 /**************************************************************************************************/
+// Protocol
+/**************************************************************************************************/
+protocol APIControllerProtocol {
+    func didReceiveAPIResults(results: NSArray)
+}
+
+/**************************************************************************************************/
 // Class
 /**************************************************************************************************/
 class APIController {
@@ -19,7 +26,13 @@ class APIController {
     
     // Var
     /*************************/
-    var delegate: APIControllerProtocol?
+    var delegate: APIControllerProtocol
+    
+    // init
+    /*************************/
+    init(delegate: APIControllerProtocol) {
+        self.delegate = delegate
+    }
     
     /*************************************************/
     // Functions
@@ -31,7 +44,7 @@ class APIController {
         
         // Now escape anything else that isn't URL-friendly
         if let escapedSearchTerm = itunesSearchTerm.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet()) {
-            let urlPath = "http://itunes.apple.com/search?term=\(escapedSearchTerm)&media=software"
+            let urlPath = "https://itunes.apple.com/search?term=\(escapedSearchTerm)&amp;media=music&amp;entity=album"
             let url = NSURL(string: urlPath)
             let session = NSURLSession.sharedSession()
             let task = session.dataTaskWithURL(url!, completionHandler: {data, response, error -> Void in
@@ -39,11 +52,11 @@ class APIController {
                 if(error != nil) {
                     // If there is an error in the web request, print it to the console
                     print(error!.localizedDescription)
-                }                
+                }
                 do {
                     let jsonResult = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
                     if let results: NSArray = jsonResult["results"] as? NSArray {
-                        self.delegate?.didReceiveAPIResults(results)
+                        self.delegate.didReceiveAPIResults(results)
                     }
                 } catch let error as NSError {
                     print(error.description)
@@ -58,9 +71,3 @@ class APIController {
     
 }
 
-/**************************************************************************************************/
-// Protocol
-/**************************************************************************************************/
-protocol APIControllerProtocol {
-    func didReceiveAPIResults(results: NSArray)
-}
