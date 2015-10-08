@@ -30,8 +30,8 @@ class APIController {
         let itunesSearchTerm = searchTerm.stringByReplacingOccurrencesOfString(" ", withString: "+", options: NSStringCompareOptions.CaseInsensitiveSearch, range: nil)
         
         // Now escape anything else that isn't URL-friendly
-if let escapedSearchTerm = itunesSearchTerm.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet()) {
-    let urlPath = "http://itunes.apple.com/search?term=\(escapedSearchTerm)&media=software"
+        if let escapedSearchTerm = itunesSearchTerm.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet()) {
+            let urlPath = "http://itunes.apple.com/search?term=\(escapedSearchTerm)&media=software"
             let url = NSURL(string: urlPath)
             let session = NSURLSession.sharedSession()
             let task = session.dataTaskWithURL(url!, completionHandler: {data, response, error -> Void in
@@ -39,7 +39,7 @@ if let escapedSearchTerm = itunesSearchTerm.stringByAddingPercentEncodingWithAll
                 if(error != nil) {
                     // If there is an error in the web request, print it to the console
                     print(error!.localizedDescription)
-                }
+                }                
                 do {
                     let jsonResult = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
                     if let results: NSArray = jsonResult["results"] as? NSArray {
@@ -48,7 +48,7 @@ if let escapedSearchTerm = itunesSearchTerm.stringByAddingPercentEncodingWithAll
                 } catch let error as NSError {
                     print(error.description)
                 }
-                
+
             })
             
             // The task is just an object with all these properties set
